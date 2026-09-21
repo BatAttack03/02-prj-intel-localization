@@ -1,0 +1,516 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+:root {
+  --intel-blue: #0068b5;
+  --intel-light-blue: #00aeef;
+  --intel-dark-blue: #001e3c;
+  --intel-navy: #061f41;
+
+  --text-dark: #07195b;
+  --text-gray: #5b6f88;
+
+  --light-gray: #f6f8fb;
+  --border-color: #d7e0ea;
+
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  color: var(--intel-dark-blue);
+  line-height: 1.5;
+}
+
+
+/* =========================
+   HERO SECTION
+   Intel branding, contrast,
+   logo, headline, subheading
+========================= */
+
+.hero {
+  min-height: 420px;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  overflow: hidden;
+
+  color: var(--white);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 20, 45, 0.97) 0%,
+      rgba(0, 40, 85, 0.88) 45%,
+      rgba(0, 104, 181, 0.35) 100%
+    );
+}
+
+.hero-image-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url("img/Intel_Hero.png");
+  background-size: cover;
+
+  background-position: center right;
+
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  width: min(1400px, 90%);
+  margin: 0 auto;
+  padding: 65px 0;
+}
+
+
+/* Intel logo */
+
+.intel-logo {
+  width: 110px;
+  height: auto;
+  display: block;
+
+  margin-bottom: 32px;
+}
+
+
+/* Main headline */
+
+.hero h1 {
+  max-width: 760px;
+
+  margin-bottom: 24px;
+
+  font-size: clamp(2.7rem, 5vw, 5rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  color: var(--white);
+}
+
+
+/* Hero subheading */
+
+.hero p {
+  max-width: 680px;
+
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+
+/* =========================
+   TIMELINE SECTION
+========================= */
+
+.timeline-section {
+  padding: 60px 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ffffff,
+      #f7f9fc
+    );
+}
+
+
+/* Timeline outer wrapper */
+
+.timeline-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================
+   TIMELINE
+   Flexbox + horizontal scroll
+========================= */
+
+.timeline {
+  display: flex;
+  gap: 24px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding:
+    35px
+    max(5vw, calc((100vw - 1400px) / 2))
+    45px;
+
+  /*
+    EXTRA CREDIT:
+    Scroll snap
+  */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+  scrollbar-color: #688db7 #e5edf5;
+}
+
+
+/* Chrome / Edge / Safari scrollbar */
+
+.timeline::-webkit-scrollbar {
+  height: 8px;
+}
+
+.timeline::-webkit-scrollbar-track {
+  background-color: #e5edf5;
+  border-radius: 20px;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background-color: #688db7;
+  border-radius: 20px;
+}
+
+
+/* =========================
+   TIMELINE CARDS
+========================= */
+
+.milestone-card {
+  flex: 0 0 300px;
+
+  /*
+    EXTRA CREDIT:
+    Each card snaps into view.
+  */
+  scroll-snap-align: center;
+
+  background-color: var(--white);
+
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 40, 85, 0.08);
+
+  /*
+    EXTRA CREDIT:
+    Smooth transitions
+  */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================
+   CARD IMAGES
+========================= */
+
+.card-image {
+  width: 100%;
+  height: 170px;
+
+  overflow: hidden;
+
+  background-color: var(--white);
+
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.card-content {
+  padding: 23px;
+}
+
+
+.card-content h2 {
+  color: var(--intel-blue);
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  margin-bottom: 5px;
+}
+
+
+.card-content h3 {
+  color: var(--text-dark);
+
+  font-size: 1.35rem;
+
+  line-height: 1.2;
+
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   HOVER DETAILS
+========================= */
+
+.hover-details {
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    margin-top 0.3s ease;
+}
+
+
+.hover-details p {
+  color: rgba(255, 255, 255, 0.86);
+
+  font-size: 0.95rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================
+   CARD HOVER EFFECT
+========================= */
+
+.milestone-card:hover {
+  /*
+    EXTRA CREDIT:
+    CSS transforms
+  */
+  transform:
+    translateY(-12px)
+    scale(1.02);
+
+  background-color: var(--intel-navy);
+
+  border-color: var(--intel-light-blue);
+
+  /*
+    EXTRA CREDIT:
+    Stronger shadow on hover
+  */
+  box-shadow:
+    0 20px 40px
+    rgba(0, 68, 130, 0.23);
+}
+
+.milestone-card:hover h2 {
+  color: #5ed1ff;
+}
+
+.milestone-card:hover h3 {
+  color: var(--white);
+}
+
+.milestone-card:hover .card-image {
+  filter: brightness(0.82);
+
+  transform: scale(1.02);
+}
+
+.milestone-card:hover .hover-details {
+  max-height: 400px;
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+  margin-top: 16px;
+}
+
+
+/* =========================
+   SCROLL MESSAGE
+========================= */
+
+.scroll-hint {
+  width: min(1400px, 90%);
+
+  margin: 5px auto 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  color: #7389a6;
+
+  font-size: 0.9rem;
+}
+
+
+.scroll-line {
+  width: 45px;
+  height: 2px;
+
+  background-color: var(--intel-dark-blue);
+}
+
+
+/* =========================
+   TABLET + MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    min-height: 500px;
+  }
+
+
+  .hero-content {
+    padding: 55px 0;
+  }
+
+
+  .hero-image-placeholder {
+    background-position: center;
+  }
+
+
+  .timeline-wrapper {
+    overflow: visible;
+  }
+
+  .timeline {
+    width: min(90%, 650px);
+
+    margin: 0 auto;
+
+    padding: 25px 0;
+
+    flex-direction: column;
+
+    overflow: visible;
+
+    scroll-snap-type: none;
+  }
+
+
+  .milestone-card {
+    width: 100%;
+    flex: none;
+  }
+
+  .hover-details {
+    max-height: 400px;
+
+    opacity: 1;
+
+    transform: none;
+
+    margin-top: 15px;
+  }
+
+
+  .hover-details p {
+    color: var(--text-gray);
+  }
+
+
+  .milestone-card:hover .hover-details p {
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+
+  .milestone-card:hover {
+    transform: translateY(-5px);
+  }
+
+
+  .card-image {
+    height: 210px;
+  }
+
+
+  .scroll-hint {
+    display: none;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+  .hero {
+    min-height: 470px;
+  }
+
+
+  .hero-content {
+    padding: 45px 0;
+  }
+
+
+  .intel-logo {
+    width: 90px;
+    margin-bottom: 25px;
+  }
+
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+
+  .card-image {
+    height: 165px;
+  }
+
+}
