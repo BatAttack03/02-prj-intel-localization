@@ -723,12 +723,6 @@ input:focus-visible {
    RTL SUPPORT
 ========================= */
 
-/*
-  When JavaScript detects an RTL
-  language, it adds dir="rtl"
-  to the HTML element.
-*/
-
 html[dir="rtl"] body {
   text-align: right;
 }
